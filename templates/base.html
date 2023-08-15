@@ -25,11 +25,14 @@
                 <button id="search_button" type="submit">Поиск</button>
             </form>
         </div>
-        {% block links %}{% endblock %}
+        {% block links_top %}{% endblock %}
     </header>
     <main>
         {% block records %}{% endblock %}
     </main>
+    <footer>
+        {% block links_bottom %} {% endblock %}
+    </footer>
 <script>
         (function() {
             'use strict';
