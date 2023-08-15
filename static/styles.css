@@ -1,0 +1,204 @@
+/* Обнуление стилей для body */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+
+        /* Стили для заголовка */
+        header {
+            background-color: #f0f0f0;
+            padding: 10px;
+            text-align: center;
+        }
+
+
+
+        /* Стили для поля поиска */
+        .search-bar {
+            margin-bottom: 10px;
+        }
+
+        .search-bar input {
+            padding: 10px;
+            width: 45%;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+
+        .search-bar button {
+            padding: 10px 20px;
+            background-color: #007bff;
+            border: none;
+            color: white;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        /* Стили для списка ссылок на страницы */
+        .page-links ul {
+            list-style: none;
+            padding: 0;
+            display: flex;
+            overflow-x: auto;
+            width: calc(50% + 7px + 15px); /* Рассчет ширины с учетом полосы прокрутки */
+            margin: 0 auto; /* Центрирование */
+            gap: 10px;
+            scrollbar-width: thin;
+            scrollbar-color: #ccc #f0f0f0;
+        }
+
+        .page-links li {
+            flex-shrink: 0;
+        }
+
+        .page-links button {
+            padding: 5px 10px;
+            background-color: #007bff;
+            border: none;
+            color: white;
+            border-radius: 5px;
+            cursor: pointer;
+            white-space: nowrap;
+        }
+
+        /* Центрирование ссылок на страницы */
+        .page-links-center {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-grow: 1;
+        }
+
+        /* Стили для основного контента */
+        main {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 10px;
+        }
+
+        /* Стили для карточек */
+        .card {
+            display: flex;
+            background-color: #f0f0f0;
+            width: 70%; /* Для больших экранов */
+            min-width: 300px; /* Минимальная ширина на мобильных устройствах */
+            border-radius: 5px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s;
+            margin-bottom: 10px;
+        }
+
+        .card img {
+            width: 20%;
+            height: 20%;
+            max-width: 100%; /* Добавлено для сохранения пропорций */
+            max-height: 100%;
+            border-radius: 5px 0 0 5px;
+            object-fit: cover;
+            margin: 5px;
+        }
+        .card img[scalable]
+        {
+        cursor: pointer;
+        transition-property: max-width, max-height, left, top;
+        transition-duration: 0.3s;
+        }
+
+        .card-content {
+            flex: 1;
+            padding: 10px;
+            overflow: hidden; /* Обрезать текст при необходимости */
+        }
+
+        .card h2 {
+            font-size: 16px;
+            margin: 10px 0;
+            overflow: hidden; /* Обрезать текст при необходимости */
+            white-space: nowrap; /* Избегать переноса строки */
+            text-overflow: ellipsis; /* Отображать многоточие при обрезанном тексте */
+        }
+
+        .card p {
+            font-size: 14px;
+            color: #666;
+            overflow: hidden; /* Обрезать текст при необходимости */
+        }
+
+        .card a {
+            display: inline-block;
+            padding: 5px 10px;
+            background-color: #007bff;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            margin-top: 10px;
+            font-size: 14px;
+        }
+
+        /* Стили для кнопки "скрыть работу" */
+        .card a.hide-button {
+            display: inline-block;
+            padding: 5px 10px;
+            background-color: #e74c3c;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            margin-top: 10px;
+            font-size: 14px;
+        }
+
+        /* Медиа-запросы для мобильных устройств */
+        @media (max-width: 480px) {
+            .search-bar input {
+                width: 50%;
+            }
+
+            .search-bar button {
+                width: 20%;
+                padding: 8px 17px;
+            }
+
+            /* Скрытие полосы прокрутки на мобильных устройствах */
+            .page-links:after {
+                display: none;
+            }
+            .page-links ul {
+                width: calc(70% + 7px + 15px); /* Рассчет ширины с учетом полосы прокрутки */
+            }
+
+            .card {
+                width: 100%; /* На всю ширину экрана */
+                min-width: auto; /* Сброс минимальной ширины */
+            }
+
+            .card img {
+                width: 20%;
+                max-width: 100%; /* Добавлено для сохранения пропорций */
+                height: 20%;
+                max-height: 100%;
+                border-radius: 5px 0 0 5px;
+                object-fit: cover;
+                margin: 5px;
+            }
+            .card-content {
+                padding: 10px;
+            }
+
+            .card h2 {
+                font-size: 14px;
+            }
+
+            .card p {
+                font-size: 12px;
+            }
+
+            .card a {
+                padding: 6px 10px;
+                font-size: 12px;
+            }
+        }
