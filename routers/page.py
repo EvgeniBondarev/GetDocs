@@ -6,7 +6,7 @@ from fastapi.responses import HTMLResponse, RedirectResponse
 from utils.repository import AioSqliteRepository
 
 
-db = AioSqliteRepository("static\data\labs.db")
+db = AioSqliteRepository("labs.db")
 
 page_router = APIRouter(
     prefix="/page",
