@@ -3,10 +3,10 @@ from fastapi.templating import Jinja2Templates
 from fastapi.responses import HTMLResponse, RedirectResponse
 
 
-from utils.repository import AioSqliteRepository
+from utils.repository import SqliteRepository
 
 
-db = AioSqliteRepository("labs.db")
+db = SqliteRepository("labs.db")
 
 page_router = APIRouter(
     prefix="/page",
@@ -21,9 +21,9 @@ async def redirect_page():
     return RedirectResponse("/page/1")
 
 @page_router.get("/{page_number}",  response_class=HTMLResponse)
-async def render_page(request: Request, page_number: int, record_count: int = 20):
-    records = await db.get_records_in_range(page_number, record_count)
-    all_record_count = await db.get_records_count()
+def render_page(request: Request, page_number: int, record_count: int = 20):
+    records = db.get_records_in_range(page_number, record_count)
+    all_record_count = db.get_records_count()
     link_count = all_record_count // record_count
 
     return templates.TemplateResponse("page.html", {"request": request,
@@ -35,6 +35,6 @@ async def render_page(request: Request, page_number: int, record_count: int = 20
 
 
 @page_router.post("/serch", response_class=HTMLResponse)
-async def postdata(request: Request, serching_data=Form()):
-    records = await db.full_text_search(serching_data)
+def postdata(request: Request, serching_data=Form()):
+    records = db.full_text_search(serching_data)
     return templates.TemplateResponse("serch_page.html", {"request": request, "records": records})

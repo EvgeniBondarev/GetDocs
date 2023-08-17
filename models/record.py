@@ -8,7 +8,7 @@ class Record(BaseModel):
     img_url: str
     doc_url: str
 
-async def render_record_model(base_record_data: tuple) -> Record:
+def render_record_model(base_record_data: tuple) -> Record:
     return Record(
         id=base_record_data[0],
         img_id=base_record_data[1],

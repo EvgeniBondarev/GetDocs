@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="{{ url_for('static', path='styles.css') }}">
+    <link rel="shortcut icon" href="{{ url_for('static', path='img\icon_24.ico') }}" type="image/x-icon">
     <script type="text/javascript" src="{{ url_for('static', path='app.js') }}"></script>
     <title>GetDocs</title>
     <style>
@@ -18,7 +19,7 @@
 </head>
 <body>
     <header>
-        <a href="/page/1"><h1>GetDocs</h1></a>
+        <a href="/page/1"><h1><img src="{{ url_for('static', path='img\icon_32.ico') }}">GetDocs</h1></a>
         <div class="search-bar">
             <form action="/page/serch" method="post">
                 <input name="serching_data" type="text" placeholder="Поиск..." autocapitalize="none">
