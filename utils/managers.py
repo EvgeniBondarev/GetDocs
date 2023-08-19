@@ -1,4 +1,4 @@
-from repository import DatabaseType, AbstractRepository, SqliteRepository, PostgresRepository
+from .repository import DatabaseType, AbstractRepository, SqliteRepository, PostgresRepository
 
 
 class DatabaseManager:
@@ -16,7 +16,3 @@ class DatabaseManager:
             raise ValueError("Unsupported database type")
 
 
-# db_manager = DatabaseManager(db_type=DatabaseType.SQLITE, connection_string="sqlite://database.db")
-# repository = db_manager.get_repository()
-#
-# record = repository.get_record_by_id(1)гмшсщ
