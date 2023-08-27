@@ -1,18 +1,10 @@
 {% extends "base.html" %}
 
+{% from "macros/render_records_list.html" import render_records_list %}
+
 {% block records %}
     {% if records %}
-        {% for record in records %}
-            <div class="card">
-                <img src="{{record.img_url}}" alt="Картинка карточки" scalable="20%">
-                <div class="card-content">
-                    <h2>{{record.id}} - {{record.img_id}}</h2>
-                    <p>{{record.description}}</p>
-                    <a href={{record.doc_url}}>Скачать</a>
-                    <!--<a href="#" class="hide-button">Скрыть работу</a>-->
-                </div>
-            </div>
-        {% endfor %}
+        {{ render_records_list(records) }}
     {% else %}
         <div class="card">
                 <div class="card-content">

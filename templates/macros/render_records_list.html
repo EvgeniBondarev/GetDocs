@@ -1,0 +1,13 @@
+{% macro render_records_list(records, sep=False) %}
+  {% for record in records %}
+    <div class="card">
+      <img src="https://raw.githubusercontent.com/EvgeniBondarev/LabsData/main/imgs/img_{{ record.photo_id[:4] }}/{{ record.photo_id }}.jpg" alt="Картинка карточки" scalable="20%">
+      <div class="card-content">
+        <h2>{{record.id}} - {{record.photo_id}}</h2>
+        <p>{{ record.description[:1000] }}</p>
+        <a href="https://raw.githubusercontent.com/EvgeniBondarev/LabsData/main/documents/doc_{{ record.photo_id[:4] }}/{{ record.photo_id }}.pdf">Скачать</a>
+        <!--<a href="#" class="hide-button">Скрыть работу</a>-->
+      </div>
+    </div>
+  {% endfor %}
+{% endmacro %}

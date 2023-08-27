@@ -1,42 +1,18 @@
 {% extends "base.html" %}
+
+{% from "macros/render_records_list.html" import render_records_list %}
+{% from "macros/render_links.html" import render_links %}
+
+
 {% block links_top %}
-        <div class="page-links">
-            <ul>
-                {% for i in range(1, link_count + 2) %}
-                    {% if i == page_number %}
-                        <li><a href="/page/{{i}}" ><button style="color: black;">{{i}}</button></a></li>
-                    {% else %}
-                        <li><a href="/page/{{i}}"><button>{{i}}</button></a></li>
-                    {% endif %}
-                {% endfor %}
-            </ul>
-        </div>
+        {{ render_links(link_count) }}
 {% endblock %}
 
 {% block records %}
-    {% for record in records %}
-        <div class="card">
-            <img src="{{record.img_url}}" alt="Картинка карточки" scalable="20%">
-            <div class="card-content">
-                <h2>{{record.id}} - {{record.img_id}}</h2>
-                <p>{{record.description}}</p>
-                <a href={{record.doc_url}}>Скачать</a>
-                <!--<a href="#" class="hide-button">Скрыть работу</a>-->
-            </div>
-        </div>
-    {% endfor %}
+    {{ render_records_list(records) }}
 {% endblock %}
 
 {% block links_bottom %}
-        <div class="page-links">
-            <ul>
-                {% for i in range(1, link_count + 2) %}
-                    {% if i == page_number %}
-                        <li><a href="/page/{{i}}" ><button style="color: black;">{{i}}</button></a></li>
-                    {% else %}
-                        <li><a href="/page/{{i}}"><button>{{i}}</button></a></li>
-                    {% endif %}
-                {% endfor %}
-            </ul>
-        </div>
+        {{ render_links(link_count) }}
 {% endblock %}
+

@@ -1,0 +1,13 @@
+{% macro render_links(link_count, sep=False) %}
+        <div class="page-links">
+            <ul>
+                {% for i in range(1, link_count + 2) %}
+                    {% if i == page_number %}
+                        <li><a href="/page/{{i}}" ><button style="color: black;">{{i}}</button></a></li>
+                    {% else %}
+                        <li><a href="/page/{{i}}"><button>{{i}}</button></a></li>
+                    {% endif %}
+                {% endfor %}
+            </ul>
+        </div>
+{% endmacro %}
